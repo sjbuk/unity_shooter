@@ -4,6 +4,12 @@
 /[Bb]uild/
 /[Bb]uilds/
 /Assets/AssetStoreTools*
+/Assets/Dreamteck*
+/Assets/ParadoxNotion*
+/Assets/StarSparrow*
+/Assets/Standard Assets*
+/Assets/The_Texture_Lab*
+
 
 # Visual Studio 2015 cache directory
 /.vs/
