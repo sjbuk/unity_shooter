@@ -19,6 +19,7 @@ public class playerController : MonoBehaviour {
 	private float tilt;
 	private ParticleSystem ps;
     private bool isShooting;
+    private float _scrollSpeed;
 
 
 	// Use this for initialization
@@ -27,6 +28,7 @@ public class playerController : MonoBehaviour {
 		SetThrusters(thrustersForward, true);
         isShooting = false;
         points = 0;
+        _scrollSpeed = MainGameController.instance.scrollSpeed;
 	}
 	
 	// Update is called once per frame
@@ -67,10 +69,11 @@ public class playerController : MonoBehaviour {
 
             tilt = x * maxTilt * -1;
             transform.eulerAngles = new Vector3(0, 0, tilt);
-            transform.Translate(x * Time.deltaTime * speed, 0, z * Time.deltaTime * speed, Space.World);
+            transform.Translate(x * Time.deltaTime * speed, 0, (z * speed + _scrollSpeed) * Time.deltaTime , Space.World);
+            //(z * Time.deltaTime * speed)
 
-            //Clamp to viewport
-            Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
+        //Clamp to viewport
+        Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
             pos.x = Mathf.Clamp(pos.x, 0.07f, 0.93f);
             pos.y = Mathf.Clamp(pos.y, 0.06f, 0.94f);
             transform.position = Camera.main.ViewportToWorldPoint(pos);

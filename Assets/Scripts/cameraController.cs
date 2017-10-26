@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class cameraController : MonoBehaviour {
-    public float scrollSpeed = 20;
+    private float _scrollSpeed ;
 	// Use this for initialization
 	void Start () {
-		
+        _scrollSpeed = MainGameController.instance.scrollSpeed;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        transform.Translate(Vector3.up * scrollSpeed * Time.deltaTime);
+        transform.Translate(Vector3.up * _scrollSpeed * Time.deltaTime);
 		
 	}
 }

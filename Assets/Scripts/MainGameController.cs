@@ -5,6 +5,7 @@ using UnityEngine;
 public class MainGameController : MonoBehaviour {
 
     public static MainGameController instance;
+    public float scrollSpeed = 10;
 
     private int _currentScore;
     private void Awake()
